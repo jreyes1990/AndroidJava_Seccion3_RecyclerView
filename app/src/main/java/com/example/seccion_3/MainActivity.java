@@ -3,8 +3,10 @@ package com.example.seccion_3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     mLayoutManager = new LinearLayoutManager(this);
+    mLayoutManager = new GridLayoutManager(this, 2);
+    mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
     mAdapter = new MyAdapter(names, R.layout.recycler_view_item, new MyAdapter.OnItemClickListener() {
       @Override
       public void onItemClick(String name, int position) {
